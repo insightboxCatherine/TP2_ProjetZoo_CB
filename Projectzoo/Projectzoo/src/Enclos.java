@@ -48,16 +48,16 @@ public class Enclos {
         private String zoneNumber;
         private String cageType;
         private String cageSize;
-        private String gr_social;
+        private String grSocial;
         //Le constructeur permet d'initialiser les variables.
         public Zone(){}
         //Le constructeur permet d'initialiser les variables.
-        public Zone(String zoneType, String zoneNumber, String cageType, String cageSize, String gr_social) {
+        public Zone(String zoneType, String zoneNumber, String cageType, String cageSize, String grSocial) {
             this.zoneType = zoneType;
             this.zoneNumber = zoneNumber;
             this.cageType = cageType;
             this.cageSize = cageSize;
-            this.gr_social = gr_social;
+            this.grSocial = grSocial;
 
         }
         //Le setter permet de demander un changement d'état.
@@ -77,8 +77,8 @@ public class Enclos {
             this.cageSize = cageSize;
         }
 
-        public void setGr_social(String gr_social) {
-            this.gr_social = gr_social;
+        public void setGrSocial(String grSocial) {
+            this.grSocial = grSocial;
         }
 
         //Le getter permet l'accès en lecture à un attribut.
@@ -98,15 +98,15 @@ public class Enclos {
             return cageSize;
         }
 
-        public String getGr_social() {
-            return gr_social;
+        public String getGrSocial() {
+            return grSocial;
         }
 
         //to String pour faire la mise en page de la liste des enclos.
         @Override
         public String toString() {
             String txt;
-            txt = "La zone: " + getZoneType() + ", " + "Le numéro de la zone: " + getZoneNumber() + ", " + "Le type de cage: " + getCageType() + ", " + "La grandeur de la cage: " + getCageSize() + ", " + "Le groupe social: " + getGr_social();
+            txt = "La zone: " + getZoneType() + ", " + "Le numéro de la zone: " + getZoneNumber() + ", " + "Le type de cage: " + getCageType() + ", " + "La grandeur de la cage: " + getCageSize() + ", " + "Le groupe social: " + getGrSocial();
             return txt;
         }
     }
@@ -179,9 +179,9 @@ public class Enclos {
             }
             System.out.println(listEnclos[ind_enclos].getZoneType() + " " + listEnclos[ind_enclos].getZoneNumber());
             for (Animal animal : arrayOfAnimal) {
-                String groupe = listEnclos[ind_enclos].getGr_social();
-                if (animal.getGroupe_social().equals(groupe)) {
-                    System.out.println(animal.getNom_animal() + " le " + animal.getEspece());
+                String groupe = listEnclos[ind_enclos].getGrSocial();
+                if (animal.getGroupeSocial().equals(groupe)) {
+                    System.out.println(animal.getNomAnimal() + " le " + animal.getEspece());
                 }
             }
     

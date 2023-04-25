@@ -3,68 +3,68 @@ import java.util.Scanner;
 
 public class Animal {
     //Permet de définir les propriétés que nous allons utiliser dans le code.
-    private String nom_animal;
+    private String nomAnimal;
     private String espece;
-    private String ddn_animal;
+    private String ddnAnimal;
     private String dda;
-    private String lieu_naissance;
+    private String lieuNaissance;
     private String genre;
-    private String groupe_social;
-    private int ration_jour;
-    private int ration_semaine;
-    private int quantite_jour;
+    private String groupeSocial;
+    private int rationJour;
+    private int rationSemaine;
+    private int quantiteJour;
     private boolean isExotique;
 
     //Le constructeur permet d'initialiser les variables
     public Animal() {
     }
     //Le constructeur permet d'initialiser les variables
-    public Animal(String aNom_animal, String aEspece, String aDdn_animal, String aDda, String aLieu_naissance, String aGenre, String aGroupe_social, int aRation_jour, int aRation_semaine, int aQuantite_jour, boolean aIsExotique) {
-        nom_animal = aNom_animal;
+    public Animal(String aNomAnimal, String aEspece, String aDdnAnimal, String aDda, String aLieuNaissance, String aGenre, String aGroupeSocial, int aRationJour, int aRationSemaine, int aQuantiteJour, boolean aIsExotique) {
+        nomAnimal = aNomAnimal;
         espece = aEspece;
-        ddn_animal = aDdn_animal;
+        ddnAnimal = aDdnAnimal;
         dda = aDda;
-        lieu_naissance = aLieu_naissance;
+        lieuNaissance = aLieuNaissance;
         genre = aGenre;
-        groupe_social = aGroupe_social;
-        ration_jour = aRation_jour;
-        ration_semaine = aRation_semaine;
-        quantite_jour = aQuantite_jour;
+        groupeSocial = aGroupeSocial;
+        rationJour = aRationJour;
+        rationSemaine = aRationSemaine;
+        quantiteJour = aQuantiteJour;
         isExotique = aIsExotique;
     }
     //Le setter permet de demander un changement d'état.
-    public void setNom_animal(String aNom_animal) {
-        this.nom_animal = aNom_animal;
+    public void setnomAnimal(String aNomAnimal) {
+        this.nomAnimal = aNomAnimal;
     }
 
     public void setEspece(String aEspece) {
         this.espece = aEspece;
     }
 
-    public void setDdn_animal(String aDdn_animal) {
-        this.ddn_animal = aDdn_animal;
+    public void setddnAnimal(String aDdnAnimal) {
+        this.ddnAnimal = aDdnAnimal;
     }
 
     public void setDda(String aDda) {this.dda = aDda;}
 
-    public void setLieu_naissance(String aLieu_naissance) {
-        this.lieu_naissance = aLieu_naissance;
+    public void setLieuNaissance(String aLieuNaissance) {
+        this.lieuNaissance = aLieuNaissance;
     }
 
     public void setGenre(String aGenre) {
         this.genre = aGenre;
     }
 
-    public void setRation_jour(int aRation_jour) {
-        this.ration_jour = aRation_jour;
+    public void setRationJour(int aRationJour) {
+        this.rationJour = aRationJour;
     }
 
-    public void setRation_semaine(int aRation_semaine) {
-        this.ration_semaine = aRation_semaine;
+    public void setRationSemaine(int aRationSemaine) {
+        this.rationSemaine = aRationSemaine;
     }
 
-    public void setQuantite_jour(int aQuantite_jour) {
-        this.quantite_jour = aQuantite_jour;
+    public void setQuantiteJour(int aQuantiteJour) {
+        this.quantiteJour = aQuantiteJour;
     }
 
     public void setIsExotique(boolean aIsExotique) {
@@ -72,44 +72,44 @@ public class Animal {
     }
 
     //Le getter permet l'accès en lecture à un attribut.
-    public String getNom_animal() {
-        return nom_animal;
+    public String getNomAnimal() {
+        return nomAnimal;
     }
 
     public String getEspece() {
         return espece;
     }
 
-    public String getDdn_animal() {
-        return ddn_animal;
+    public String getDdnAnimal() {
+        return ddnAnimal;
     }
 
     public String getDda() {
         return dda;
     }
 
-    public String getLieu_naissance() {
-        return lieu_naissance;
+    public String getLieuNaissance() {
+        return lieuNaissance;
     }
 
     public String getGenre() {
         return genre;
     }
 
-    public String getGroupe_social() {
-        return groupe_social;
+    public String getGroupeSocial() {
+        return groupeSocial;
     }
 
-    public int getRation_jour() {
-        return ration_jour;
+    public int getRationJour() {
+        return rationJour;
     }
 
-    public int getRation_semaine() {
-        return ration_semaine;
+    public int getRationSemaine() {
+        return rationSemaine;
     }
 
-    public int getQuantite_jour() {
-        return quantite_jour;
+    public int getQuantiteJour() {
+        return quantiteJour;
     }
 
     public boolean getIsExotique() {
@@ -144,8 +144,8 @@ public class Animal {
     //Méthode pour ajouter un animal dans le système.
     private static void addAnimal(ArrayList<Animal>arrayOfAnimal) {
         Scanner sc = new Scanner(System.in);
-        String nom_animal, espece, lieu_naissance, genre, groupe_social, ddn_animal, dda;
-        int ration_jour, ration_semaine, quantite_jour;
+        String nomAnimal, espece, lieuNaissance, genre, groupeSocial, ddnAnimal, dda;
+        int rationJour, rationSemaine, quantiteJour;
         boolean isExotique;
         String loop = "Yes";
         //Boucle while qui permet de poser les questions pertinentes à l'utilisateur et d'ajouter autant d'animaux qu'il le désire. Il décide quand il met fin à l'ajout.
@@ -155,37 +155,37 @@ public class Animal {
             System.out.println("Entrez l'espèce de l'animal: ");
             espece = sc.next();
             System.out.println("Entrez le nom de l'animal: ");
-            nom_animal = sc.next();
+            nomAnimal = sc.next();
             for (Animal animal : arrayOfAnimal) {
                 if (espece.equals(animal.getEspece())) {
-                    if (nom_animal.equals(animal.getNom_animal())) {
+                    if (nomAnimal.equals(animal.getNomAnimal())) {
                         System.out.println("Le nom choisi pour cet animal est déjà pris par un autre individu de la même espèce, veuillez en choisir un autre.");
                         System.out.println("Entrez le nom de l'animal: ");
-                        nom_animal = sc.next();
+                        nomAnimal = sc.next();
                     }
                 }
             }
             System.out.println("Entrez la date de naissance (jj/mm/aaaa): ");
-            ddn_animal = sc.next();
+            ddnAnimal = sc.next();
             System.out.println("Entrez la date d'arrivée (jj/mm/aaaa): ");
             dda = sc.next();
             System.out.println("Entrez le lieu de naissance: ");
-            lieu_naissance = sc.next();
+            lieuNaissance = sc.next();
             System.out.println("Entrez le genre de l'animal: ");
             genre = sc.next();
             System.out.println("Entrez le groupe social: ");
-            groupe_social = scanner.nextLine();
+            groupeSocial = scanner.nextLine();
             System.out.println("Entrez la fréquence des rations par jour: ");
-            ration_jour = sc.nextInt();
+            rationJour = sc.nextInt();
             System.out.println("Entrez la fréquence des rations par semaine: ");
-            ration_semaine = sc.nextInt();
+            rationSemaine = sc.nextInt();
             System.out.println("Entrez la quantité par jour: ");
-            quantite_jour = sc.nextInt();
+            quantiteJour = sc.nextInt();
             System.out.println("Est-ce un animal exotique? true/false: ");
             isExotique = sc.nextBoolean();
 
             //Création de l'objet Animal avec les propriétés de l'objet.
-            Animal animalAjout = new Animal(nom_animal, espece, ddn_animal, dda, lieu_naissance, genre, groupe_social, ration_jour, ration_semaine, quantite_jour, isExotique);
+            Animal animalAjout = new Animal(nomAnimal, espece, ddnAnimal, dda, lieuNaissance, genre, groupeSocial, rationJour, rationSemaine, quantiteJour, isExotique);
             //Ajout du nouvel animal dans la liste.
             arrayOfAnimal.add(animalAjout);
             System.out.println("Voulez-vous continuer (Yes/No)? ");
@@ -202,11 +202,11 @@ public class Animal {
     private static void removeAnimal(ArrayList<Animal> arrayOfAnimal) {
         Scanner sc = new Scanner(System.in);
         for(int i = 0; i < arrayOfAnimal.size(); i++){
-            System.out.println(i + " " + arrayOfAnimal.get(i).getNom_animal());
+            System.out.println(i + " " + arrayOfAnimal.get(i).getNomAnimal());
         }
         System.out.println("Choississez le numéro de l'animal que vous voulez enlever: ");
         int ind_animal = sc.nextInt();
-        System.out.println(arrayOfAnimal.get(ind_animal).getNom_animal() + " n'est plus dans la base de données.");
+        System.out.println(arrayOfAnimal.get(ind_animal).getNomAnimal() + " n'est plus dans la base de données.");
         arrayOfAnimal.remove(ind_animal);
         System.out.println("\n\n --------- Liste des animaux mise à jour ----------------");
         arrayOfAnimal.forEach(System.out::println);
@@ -222,16 +222,16 @@ public class Animal {
     @Override
         public String toString () {
             String txt;
-            txt = "Nom de l'animal: " + getNom_animal() + "\n";
+            txt = "Nom de l'animal: " + getNomAnimal() + "\n";
             txt += "Espèce de l'animal: " + getEspece() + "\n";
-            txt += "Date de naissance:  " + getDdn_animal() + "\n";
+            txt += "Date de naissance:  " + getDdnAnimal() + "\n";
             txt += "Date d'arrivée =  " + getDda() + "\n";
-            txt += "Lieu de naissance = " + getLieu_naissance() + "\n";
+            txt += "Lieu de naissance = " + getLieuNaissance() + "\n";
             txt += "Le genre: " + getGenre() + "\n";
-            txt += "Le groupe social: " + getGroupe_social() + "\n";
-            txt += "La fréquence des rations par jour: " + getRation_jour() + "\n";
-            txt += "La fréquence des rations par semaine: " + getRation_semaine() + "\n";
-            txt += "La quantité par jour: " + getQuantite_jour() + "\n";
+            txt += "Le groupe social: " + getGroupeSocial() + "\n";
+            txt += "La fréquence des rations par jour: " + getRationJour() + "\n";
+            txt += "La fréquence des rations par semaine: " + getRationSemaine() + "\n";
+            txt += "La quantité par jour: " + getQuantiteJour() + "\n";
             txt += "Est-ce un animal exotique? " + getIsExotique() +"\n";
             return txt;
         }

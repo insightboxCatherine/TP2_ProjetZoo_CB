@@ -3,44 +3,44 @@ import java.util.Scanner;
 //Permet de définir les propriétés que nous allons utiliser dans le code.
 public class Employe {
 
-    private int no_employe;
-    private String prenom_employe;
-    private String nom_employe;
+    private int noEmploye;
+    private String prenomEmploye;
+    private String nomEmploye;
     private String ddn;
     private int nas;
-    private String date_embauche;
-    private int annee_experience;
-    private String personne_contact;
+    private String dateEmbauche;
+    private int anneeExperience;
+    private String personneContact;
 
     //Le constructeur permet d'initialiser les variables.
     public Employe() {
     }
     //Le constructeur permet d'initialiser les variables.
-    public Employe(int aNo_employe, String aPrenom_employe, String aNom_employe, String aDdn, int aNas, String aDate_embauche, int aAnnee_experience, String aPersonne_contact) {
-        no_employe = aNo_employe;
-        prenom_employe = aPrenom_employe;
-        nom_employe = aNom_employe;
+    public Employe(int aNoEmploye, String aPrenomEmploye, String aNomEmploye, String aDdn, int aNas, String aDateEmbauche, int aAnneeExperience, String aPersonneContact) {
+        noEmploye = aNoEmploye;
+        prenomEmploye = aPrenomEmploye;
+        nomEmploye = aNomEmploye;
         ddn = aDdn;
         nas = aNas;
-        date_embauche = aDate_embauche;
-        annee_experience = aAnnee_experience;
-        personne_contact = aPersonne_contact;
+        dateEmbauche = aDateEmbauche;
+        anneeExperience = aAnneeExperience;
+        personneContact = aPersonneContact;
     }
     //Le setter permet de demander un changement d'état.
-    public Employe(int no_employe) {
-        this.no_employe = no_employe;
+    public Employe(int noEmploye) {
+        this.noEmploye = noEmploye;
     }
 
-    public void setNo_employe(int aNo_employe) {
-        this.no_employe = aNo_employe;
+    public void setNoEmploye(int aNoEmploye) {
+        this.noEmploye = aNoEmploye;
     }
 
-    public void setPrenom_employe(String aPrenom_employe) {
-        this.prenom_employe = aPrenom_employe;
+    public void setPrenomEmploye(String aPrenomEmploye) {
+        this.prenomEmploye = aPrenomEmploye;
     }
 
-    public void setNom_employe(String aNom_employe) {
-        this.nom_employe = aNom_employe;
+    public void setNomEmploye(String aNomEmploye) {
+        this.nomEmploye = aNomEmploye;
     }
 
     public void setDdn(String ddn) {
@@ -51,29 +51,29 @@ public class Employe {
         this.nas = nas;
     }
 
-    public void setDate_embauche(String aDate_embauche) {
-        this.date_embauche = aDate_embauche;
+    public void setDateEmbauche(String aDateEmbauche) {
+        this.dateEmbauche = aDateEmbauche;
     }
 
-    public void setAnnee_experience(int aAnnee_experience) {
-        this.annee_experience = aAnnee_experience;
+    public void setAnneeExperience(int aAnneeExperience) {
+        this.anneeExperience = aAnneeExperience;
     }
 
-    public void setPersonne_contact(String personne_contact) {
-        this.personne_contact = personne_contact;
+    public void setPersonneContact(String personneContact) {
+        this.personneContact = personneContact;
     }
 
     //Le getter permet l'accès en lecture à un attribut.
-    public int getNo_employe() {
-        return no_employe;
+    public int getNoEmploye() {
+        return noEmploye;
     }
 
-    public String getPrenom_employe() {
-        return prenom_employe;
+    public String getPrenomEmploye() {
+        return prenomEmploye;
     }
 
-    public String getNom_employe() {
-        return nom_employe;
+    public String getNomEmploye() {
+        return nomEmploye;
     }
 
     public String getDdn() {
@@ -84,30 +84,30 @@ public class Employe {
         return nas;
     }
 
-    public String getDate_embauche() {
-        return date_embauche;
+    public String getDateEmbauche() {
+        return dateEmbauche;
     }
 
-    public int getAnnee_experience() {
-        return annee_experience;
+    public int getAnneeExperience() {
+        return anneeExperience;
     }
 
-    public String getPersonne_contact() {
-        return personne_contact;
+    public String getPersonneContact() {
+        return personneContact;
     }
 
     //to String pour faire la mise en page de la liste des employés.
     @Override
     public String toString() {
         String txt;
-        txt = "Numéro de l'employé " + getNo_employe() + "\n";
-        txt += "Nom de l'employé: " + getNom_employe() + "\n";
-        txt += "Prénom de l'employé:  " + getPrenom_employe() + "\n";
-        txt += "Date d'embauche: " + getDate_embauche() + "\n";
-        txt += "Année d'expérience: " + getAnnee_experience() + "\n";
+        txt = "Numéro de l'employé " + getNoEmploye() + "\n";
+        txt += "Nom de l'employé: " + getNomEmploye() + "\n";
+        txt += "Prénom de l'employé:  " + getPrenomEmploye() + "\n";
+        txt += "Date d'embauche: " + getDateEmbauche() + "\n";
+        txt += "Année d'expérience: " + getAnneeExperience() + "\n";
         txt += "Date de naissance: " + getDdn() + "\n";
         txt += "Numéro d'assurance social: " + getNas() + "\n";
-        txt += "Personne à contacter en cas d'urgence: " + getPersonne_contact() + "\n";
+        txt += "Personne à contacter en cas d'urgence: " + getPersonneContact() + "\n";
         return txt;
     }
 
@@ -115,39 +115,39 @@ public class Employe {
     //Elle devient ici la classe Nourrisseur avec un attribut de plus.
     static class Nourrisseur extends Employe{
 
-        protected int no_employe;
-        protected String prenom_employe;
-        protected String nom_employe;
+        protected int noEmploye;
+        protected String prenomEmploye;
+        protected String nomEmploye;
         protected String ddn;
         protected int nas;
-        protected String date_embauche;
-        protected int annee_experience;
-        protected String personne_contact;
-        protected String animaux_nourris;
+        protected String dateEmbauche;
+        protected int anneeExperience;
+        protected String personneContact;
+        protected String animauxNourris;
 
         //Les constructeurs permettent d'initialiser les variables.
         protected Nourrisseur() {
         }
         //Les constructeurs permettent d'initialiser les variables.
-        public Nourrisseur(int aNo_employe, String aPrenom_employe, String aNom_employe, String aDdn, int aNas, String aDate_embauche, int aAnnee_experience, String aPersonne_contact, String aAnimaux_nourris) {
-            no_employe = aNo_employe;
-            prenom_employe = aPrenom_employe;
-            nom_employe = aNom_employe;
+        public Nourrisseur(int aNoEmploye, String aPrenomEmploye, String aNomEmploye, String aDdn, int aNas, String aDateEmbauche, int aAnneeExperience, String aPersonneContact, String aAnimauxNourris) {
+            noEmploye = aNoEmploye;
+            prenomEmploye = aPrenomEmploye;
+            nomEmploye = aNomEmploye;
             ddn = aDdn;
             nas = aNas;
-            date_embauche = aDate_embauche;
-            annee_experience = aAnnee_experience;
-            personne_contact = aPersonne_contact;
-            animaux_nourris = aAnimaux_nourris;
+            dateEmbauche = aDateEmbauche;
+            anneeExperience = aAnneeExperience;
+            personneContact = aPersonneContact;
+            animauxNourris = aAnimauxNourris;
         }
 
         //Le setter permet de demander un changement d'état.
-        public void setPrenom_employe(String aPrenom_employe) {
-            this.prenom_employe = aPrenom_employe;
+        public void setPrenomEmploye(String aPrenomEmploye) {
+            this.prenomEmploye = aPrenomEmploye;
         }
     
-        public void setNom_employe(String aNom_employe) {
-            this.nom_employe = aNom_employe;
+        public void setNomEmploye(String aNomEmploye) {
+            this.nomEmploye = aNomEmploye;
         }
     
         public void setDdn(String aDdn) {
@@ -158,33 +158,33 @@ public class Employe {
             this.nas = aNas;
         }
     
-        public void setDate_embauche(String aDate_embauche) {
-            this.date_embauche = aDate_embauche;
+        public void setDateEmbauche(String aDateEmbauche) {
+            this.dateEmbauche = aDateEmbauche;
         }
     
-        public void setAnnee_experience(int aAnnee_experience) {
-            this.annee_experience = aAnnee_experience;
+        public void setAnneeExperience(int aAnneeExperience) {
+            this.anneeExperience = aAnneeExperience;
         }
     
-        public void setPersonne_contact(String aPersonne_contact) {
-            this.personne_contact = aPersonne_contact;
+        public void setPersonneContact(String aPersonneContact) {
+            this.personneContact = aPersonneContact;
         }
         
-        public void setAnimaux_nourris(String aAnimaux_nourris) {
-            this.animaux_nourris = aAnimaux_nourris;
+        public void setAnimauxNourris(String aAnimauxNourris) {
+            this.animauxNourris = aAnimauxNourris;
         }
 
         //Le getter permet l'accès en lecture à un attribut.
-        public int getNo_employe() {
-            return no_employe;
+        public int getNoEmploye() {
+            return noEmploye;
         }
     
-        public String getPrenom_employe() {
-            return prenom_employe;
+        public String getPrenomEmploye() {
+            return prenomEmploye;
         }
     
-        public String getNom_employe() {
-            return nom_employe;
+        public String getNomEmploye() {
+            return nomEmploye;
         }
     
         public String getDdn() {
@@ -195,35 +195,35 @@ public class Employe {
             return nas;
         }
     
-        public String getDate_embauche() {
-            return date_embauche;
+        public String getDateEmbauche() {
+            return dateEmbauche;
         }
     
-        public int getAnnee_experience() {
-            return annee_experience;
+        public int getAnneeExperience() {
+            return anneeExperience;
         }
     
-        public String getAnimaux_nourris() {
-            return animaux_nourris;
+        public String getAnimauxNourris() {
+            return animauxNourris;
         }
     
-        public String getPersonne_contact() {
-            return personne_contact;
+        public String getPersonneContact() {
+            return personneContact;
         }
 
         //to String pour faire la mise en page de la liste des employés.
         @Override
         public String toString() {
             String txt;
-            txt = "Numéro de l'employé " + getNo_employe() + "\n";
-            txt += "Nom de l'employé: " + getNom_employe() + "\n";
-            txt += "Prénom de l'employé:  " + getPrenom_employe() + "\n";
-            txt += "Date d'embauche: " + getDate_embauche() + "\n";
-            txt += "Année d'expérience: " + getAnnee_experience() + "\n";
+            txt = "Numéro de l'employé " + getNoEmploye() + "\n";
+            txt += "Nom de l'employé: " + getNomEmploye() + "\n";
+            txt += "Prénom de l'employé:  " + getPrenomEmploye() + "\n";
+            txt += "Date d'embauche: " + getDateEmbauche() + "\n";
+            txt += "Année d'expérience: " + getAnneeExperience() + "\n";
             txt += "Date de naissance: " + getDdn() + "\n";
             txt += "Numéro d'assurance social: " + getNas() + "\n";
-            txt += "Personne à contacter en cas d'urgence: " + getPersonne_contact() + "\n";
-            txt += "Animaux nourris par l'employé: " + getAnimaux_nourris() + "\n";
+            txt += "Personne à contacter en cas d'urgence: " + getPersonneContact() + "\n";
+            txt += "Animaux nourris par l'employé: " + getAnimauxNourris() + "\n";
             return txt;
         }
     }
@@ -267,8 +267,8 @@ public class Employe {
     //Méthode pour ajouter un employé dans le système.
     private static void addEmploye(ArrayList <Object> arrayOfEmploye) {
         Scanner sc = new Scanner(System.in);
-        String nom_employe, prenom_employe, ddn, date_embauche, personne_contact, animaux_nourris;
-        int nas, no_employe, annee_experience;
+        String nomEmploye, prenomEmploye, ddn, dateEmbauche, personneContact, animauxNourris;
+        int nas, noEmploye, anneeExperience;
         String loop = "Yes";
 
         //Boucle while qui permet de poser les questions pertinentes à l'utilisateur et d'ajouter autant d'employés qu'il le désire. Il décide quand il met fin à l'ajout.
@@ -277,7 +277,7 @@ public class Employe {
         while (loop.equalsIgnoreCase("Yes")) {
             for (Object obj : arrayOfEmploye) {
                 if (obj instanceof Employe employe) {
-                    System.out.println(employe.getNo_employe() + " " + employe.getPrenom_employe()+ " " + employe.getNom_employe());
+                    System.out.println(employe.getNoEmploye() + " " + employe.getPrenomEmploye()+ " " + employe.getNomEmploye());
 
                 }
             }
@@ -287,49 +287,49 @@ public class Employe {
             if (choixn.equals("oui")){
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("Entrez le ou les groupes sociaux que l'employé nourris: ");
-                animaux_nourris = scanner.nextLine();
+                animauxNourris = scanner.nextLine();
                 System.out.println("Entrez le numéro de l'employé : ");
-                no_employe = sc.nextInt();
+                noEmploye = sc.nextInt();
                 System.out.println("Entrez le prénom de l'employé: ");
-                prenom_employe = sc.next();
+                prenomEmploye = sc.next();
                 System.out.println("Entrez le nom de l'employé: ");
-                nom_employe = sc.next();
+                nomEmploye = sc.next();
                 System.out.println("Entrez la date de naissance (jj/mm/aaaa): ");
                 ddn = sc.next();
                 System.out.println("Entrez le numéro d'assurance social: ");
                 nas = sc.nextInt();
                 System.out.println("Entrez la date d'embauche (jj/mm/aaaa): ");
-                date_embauche = sc.next();
+                dateEmbauche = sc.next();
                 System.out.println("Entrez les années d'expérience: ");
-                annee_experience = sc.nextInt();
+                anneeExperience = sc.nextInt();
                 System.out.println("Entrez le nom de la personne à contacter en cas d'urgence: ");
-                personne_contact = scanner.nextLine();
+                personneContact = scanner.nextLine();
 
             //Création de l'objet Employé nourrisseur avec les propriétés requises.
-            Nourrisseur employeAjout = new Nourrisseur(no_employe, nom_employe, prenom_employe, ddn, nas, date_embauche, annee_experience, personne_contact, animaux_nourris);
+            Nourrisseur employeAjout = new Nourrisseur(noEmploye, nomEmploye, prenomEmploye, ddn, nas, dateEmbauche, anneeExperience, personneContact, animauxNourris);
             //Ajout d'un nouvel employé dans la liste.
             arrayOfEmploye.add(employeAjout);
             }
             if (choixn.equals("non")){
                 System.out.println("Entrez le numéro de l'employé : ");
-                no_employe = sc.nextInt();
+                noEmploye = sc.nextInt();
                 System.out.println("Entrez le prénom de l'employé: ");
-                prenom_employe = sc.next();
+                prenomEmploye = sc.next();
                 System.out.println("Entrez le nom de l'employé: ");
-                nom_employe = sc.next();
+                nomEmploye = sc.next();
                 System.out.println("Entrez la date de naissance (jj/mm/aaaa): ");
                 ddn = sc.next();
                 System.out.println("Entrez le numéro d'assurance social: ");
                 nas = sc.nextInt();
                 System.out.println("Entrez la date d'embauche: ");
-                date_embauche = sc.next();
+                dateEmbauche = sc.next();
                 System.out.println("Entrez les années d'expérience: ");
-                annee_experience = sc.nextInt();
+                anneeExperience = sc.nextInt();
                 System.out.println("Entrez le nom de la personne à contacter en cas d'urgence: ");
-                personne_contact = sc.next();
+                personneContact = sc.next();
 
                 //Création de l'objet Employé avec les propriétés requises.
-                Employe employeAjout = new Employe(no_employe, nom_employe, prenom_employe, ddn, nas, date_embauche, annee_experience, personne_contact);
+                Employe employeAjout = new Employe(noEmploye, nomEmploye, prenomEmploye, ddn, nas, dateEmbauche, anneeExperience, personneContact);
                 //Ajout d'un nouvel employé dans la liste.
                 arrayOfEmploye.add(employeAjout);
 
@@ -349,7 +349,7 @@ public class Employe {
         Scanner sc = new Scanner(System.in);
         for (Object obj : arrayOfEmploye) {
             if (obj instanceof Employe employe) {
-                System.out.println(employe.getNom_employe());
+                System.out.println(employe.getNomEmploye());
             }
         }
 
@@ -357,16 +357,16 @@ public class Employe {
         String enl_employe = sc.nextLine();
         for (Object obj : arrayOfEmploye) {
             if (obj instanceof Employe employe) {
-                if (enl_employe.equals(employe.getNom_employe())){
-                    System.out.println(employe.getNom_employe() + " n'est plus dans la base de données.");
+                if (enl_employe.equals(employe.getNomEmploye())){
+                    System.out.println(employe.getNomEmploye() + " n'est plus dans la base de données.");
                     arrayOfEmploye.remove(employe);
                     break;
                 }
 
             }
             if (obj instanceof Nourrisseur employe){
-                if (enl_employe.equals(employe.getNom_employe())){
-                    System.out.println(employe.getNom_employe() + " n'est plus dans la base de données.");
+                if (enl_employe.equals(employe.getNomEmploye())){
+                    System.out.println(employe.getNomEmploye() + " n'est plus dans la base de données.");
                     arrayOfEmploye.remove(employe);
                     break;
                 }
@@ -390,7 +390,7 @@ public class Employe {
             Scanner sc = new Scanner(System.in);
             for (Object obj : arrayOfEmploye) {
                 if (obj instanceof Nourrisseur employe) {
-                    System.out.println(employe.getPrenom_employe() + " " + employe.getNom_employe());
+                    System.out.println(employe.getPrenomEmploye() + " " + employe.getNomEmploye());
                 }
             }
 
@@ -398,11 +398,11 @@ public class Employe {
             String nour_employe = sc.nextLine();
             for (Object obj : arrayOfEmploye) {
                 if (obj instanceof Nourrisseur employe){
-                    if (nour_employe.equals(employe.getNom_employe())){
+                    if (nour_employe.equals(employe.getNomEmploye())){
                         System.out.println("Cet employé nourris les animaux suivants:");
                         for (Animal arrayOfAnimal : arrayOfAnimals) {
-                            if (employe.getAnimaux_nourris().contains(arrayOfAnimal.getGroupe_social())) {
-                                System.out.println(arrayOfAnimal.getNom_animal());
+                            if (employe.getAnimauxNourris().contains(arrayOfAnimal.getGroupeSocial())) {
+                                System.out.println(arrayOfAnimal.getNomAnimal());
                             }
                         }
                     }
