@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,23 +9,23 @@ public class Main {
 
         //Création de mes données (statiques) pour ma liste d'animaux.
         ArrayList<Animal> arrayOfAnimal = new ArrayList<>();
-        Animal animal1 = new Animal("Nymeria","Loup","27/11/2001","23/03/2023","Québec","Femelle","Les protecteurs de la lune",3,7,80,false);
-        Animal animal2 = new Animal("Sabre","Loup","01/08/2011","01/09/2011","Québec","Male","Les protecteurs de la lune",3,7,80,false);
-        Animal animal3 = new Animal("Leia","Loup","27/11/2009","27/11/2009","Québec","Femelle","La solitaire",3,7,60, false);
-        Animal animal4 = new Animal("Vlad","Lion","09/10/2018","02/05/2020","Afrique","Male","Les frères coquins",2,7,100,true);
-        Animal animal5 = new Animal("Eragon","Lion","09/10/2018","02/03/2020","Afrique","Male","Les frères coquins",2,7,100,true);
-        Animal animal6 = new Animal("Griffon","Lion","20/12/2012","05/08/2013","Afrique","Male","Neuf Vies",2,7,100,true);
-        Animal animal7 = new Animal("Jade","Castor","02/12/2017","06/08/2015","Québec","Femelle","Les Saint-Félicien",1,7,30,false);
-        Animal animal8 = new Animal("Tobias","Castor","05/12/2015","09/06/2015","Québec","Male","Les Saint-Félicien",1,7,50,false);
-        Animal animal9 = new Animal("Pollux","Castor","08/10/2020","08/10/2020","Québec","Male","Les Saint-Félicien",1,7,20,false);
-        Animal animal10 = new Animal("Cinnamon","Porc-épic","10/09/2020","02/07/2021","Mexique","Femelle","Les sarcastiques",2,7,70,false);
-        Animal animal11 = new Animal("Hazel","Porc-épic","14/08/2021","14/08/2021","Québec","Femelle","Les sarcastiques",2,7,40,false);
-        Animal animal12 = new Animal("Carlin","Ouistiti","02/10/2001","07/08/2005","Brésil","Male","Les Pygmés malins",3,7,50,true);
-        Animal animal13 = new Animal("Bagel","Ouistiti","05/08/2004","05/08/2006","Brésil","Femelle","Les pygmés malins",3,7,35,true);
-        Animal animal14 = new Animal("Peggy","Ours noir","05/07/1998","09/02/2003","Québec","Femelle","L'artiste",1,7,120,false);
+        /*Animal animal1 = new Animal("Nymeria",Animauxexotiques.LOUP,"27/11/2001","23/03/2023","Québec","Femelle","Les protecteurs de la lune",3,7,80,true);*/
+        Animal animal2 = new Animal("Sabre",Animauxexotiques.LOUP,"01/08/2011","01/09/2011","Québec","Male","Les protecteurs de la lune",3,7,80,true);
+        Animal animal3 = new Animal("Leia",Animauxexotiques.LOUP,"27/11/2009","27/11/2009","Québec","Femelle","La solitaire",3,7,60, true);
+        Animal animal4 = new Animal("Vlad",Animauxexotiques.LION,"09/10/2018","02/05/2020","Afrique","Male","Les frères coquins",2,7,100,true);
+        Animal animal5 = new Animal("Eragon",Animauxexotiques.LION,"09/10/2018","02/03/2020","Afrique","Male","Les frères coquins",2,7,100,true);
+        Animal animal6 = new Animal("Griffon",Animauxexotiques.LION,"20/12/2012","05/08/2013","Afrique","Male","Neuf Vies",2,7,100,true);
+        Animal animal7 = new Animal("Jade",Animauxexotiques.CASTOR,"02/12/2017","06/08/2015","Québec","Femelle","Les Saint-Félicien",1,7,30,true);
+        Animal animal8 = new Animal("Tobias",Animauxexotiques.CASTOR,"05/12/2015","09/06/2015","Québec","Male","Les Saint-Félicien",1,7,50,true);
+        Animal animal9 = new Animal("Pollux",Animauxexotiques.CASTOR,"08/10/2020","08/10/2020","Québec","Male","Les Saint-Félicien",1,7,20,true);
+        Animal animal10 = new Animal("Cinnamon",Animauxdomestiques.PORCEPIC,"10/09/2020","02/07/2021","Mexique","Femelle","Les sarcastiques",2,7,70,false);
+        Animal animal11 = new Animal("Hazel",Animauxdomestiques.PORCEPIC,"14/08/2021","14/08/2021","Québec","Femelle","Les sarcastiques",2,7,40,false);
+        Animal animal12 = new Animal("Carlin",Animauxexotiques.OUISTITI,"02/10/2001","07/08/2005","Brésil","Male","Les Pygmés malins",3,7,50,true);
+        Animal animal13 = new Animal("Bagel",Animauxexotiques.OUISTITI,"05/08/2004","05/08/2006","Brésil","Femelle","Les pygmés malins",3,7,35,true);
+        Animal animal14 = new Animal("Peggy",Animauxexotiques.OURSNOIR,"05/07/1998","09/02/2003","Québec","Femelle","L'artiste",1,7,120,true);
 
         //Permet d'entreposer plusieurs variables dans une seule variable.
-        arrayOfAnimal.add(animal1);
+        /*arrayOfAnimal.add(animal1);*/
         arrayOfAnimal.add(animal2);
         arrayOfAnimal.add(animal3);
         arrayOfAnimal.add(animal4);
@@ -38,6 +39,31 @@ public class Main {
         arrayOfAnimal.add(animal12);
         arrayOfAnimal.add(animal13);
         arrayOfAnimal.add(animal14);
+
+        //lecture dans un fichier et ajout des voitures dans le arraylist arrayOfCars
+        try {
+            File myFile = new File("Projectzoo/Projectzoo/listofanimals");
+            Scanner myReader = new Scanner(myFile);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                String[] splitData = data.split(",", 0);
+                int rationJour = Integer.parseInt(splitData[7]);
+                int rationSemaine = Integer.parseInt(splitData[8]);
+                int quantiteJour = Integer.parseInt(splitData[9]);
+                boolean isExotic=Boolean.parseBoolean(splitData[10]);
+                if (isExotic = true) {
+                    arrayOfAnimal.add(new Animal(splitData[0], Animauxexotiques.valueOf(splitData[1].toUpperCase()), splitData[2], splitData[3], splitData[4], splitData[5], splitData[6], rationJour, rationSemaine, quantiteJour, isExotic));
+                }
+                if(isExotic = false) {
+                    arrayOfAnimal.add(new Animal(splitData[0], Animauxdomestiques.valueOf(splitData[1].toUpperCase()), splitData[2], splitData[3], splitData[4], splitData[5], splitData[6], rationJour, rationSemaine, quantiteJour, isExotic));
+                }
+            }
+            myReader.close();
+
+        }catch (FileNotFoundException e) {
+            System.out.println("Une erreur est survenue: " + e);
+            e.printStackTrace();
+        }
 
         //Création de mes données (statiques) dans la liste d'employés et d'employés-nourrisseurs.
         ArrayList<Object> arrayOfEmploye = new ArrayList<>();

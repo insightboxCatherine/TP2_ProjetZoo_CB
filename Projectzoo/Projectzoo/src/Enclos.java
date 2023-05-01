@@ -44,15 +44,15 @@ public class Enclos {
 
     //Permet de définir les propriétés que nous allons utiliser dans le code.
     public static class Zone {
-        private String zoneType;
+        private Typeenclos zoneType;
         private String zoneNumber;
         private String cageType;
-        private String cageSize;
+        private Tailleenclos cageSize;
         private String grSocial;
         //Le constructeur permet d'initialiser les variables.
         public Zone(){}
         //Le constructeur permet d'initialiser les variables.
-        public Zone(String zoneType, String zoneNumber, String cageType, String cageSize, String grSocial) {
+        public Zone(Typeenclos zoneType, String zoneNumber, String cageType, Tailleenclos cageSize, String grSocial) {
             this.zoneType = zoneType;
             this.zoneNumber = zoneNumber;
             this.cageType = cageType;
@@ -61,7 +61,7 @@ public class Enclos {
 
         }
         //Le setter permet de demander un changement d'état.
-        public void setZoneType(String zoneType) {
+        public void setZoneType(Typeenclos zoneType) {
             this.zoneType = zoneType;
         }
 
@@ -73,7 +73,7 @@ public class Enclos {
             this.cageType = cageType;
         }
 
-        public void setCageSize(String cageSize) {
+        public void setCageSize(Tailleenclos cageSize) {
             this.cageSize = cageSize;
         }
 
@@ -82,7 +82,7 @@ public class Enclos {
         }
 
         //Le getter permet l'accès en lecture à un attribut.
-        public String getZoneType() {
+        public Typeenclos getZoneType() {
             return zoneType;
         }
 
@@ -94,7 +94,7 @@ public class Enclos {
             return cageType;
         }
 
-        public String getCageSize() {
+        public Tailleenclos getCageSize() {
             return cageSize;
         }
 
@@ -106,7 +106,7 @@ public class Enclos {
         @Override
         public String toString() {
             String txt;
-            txt = "La zone: " + getZoneType() + ", " + "Le numéro de la zone: " + getZoneNumber() + ", " + "Le type de cage: " + getCageType() + ", " + "La grandeur de la cage: " + getCageSize() + ", " + "Le groupe social: " + getGrSocial();
+            txt = this.zoneType.msg + ", " + "Le numéro de la zone: " + getZoneNumber() + ", " + "Le type de cage: " + getCageType() + ", " + this.cageSize.msgtaille + ", " + "Le groupe social: " + getGrSocial();
             return txt;
         }
     }
@@ -117,14 +117,14 @@ public class Enclos {
             int choice;
             //Création de mes données (statiques) dans la liste des enclos.
             Zone[] listEnclos = {
-                new Zone("Herbe1", "1.1", "Enclos ouverts", "Moyenne", "Les Saint-Félicien"),
-                new Zone("Herbe1", "1.2", "Enclos ouverts", "Moyenne", "Les sarcastiques"),
-                new Zone("Omni3", "3.1", "Confinements sans barreaux", "Petite", "Les pygmés malins"),
-                new Zone("Omni3", "3.2", "Confinements sans barreaux", "Grande", "L'artiste"),
-                new Zone("Carni2", "2.1", "Confinements à barreaux", "Grande", "Les protecteurs de la lune"),
-                new Zone("Carni2", "2.2", "Confinements à barreaux", "Grande", "La solitaire"),
-                new Zone("Carni2", "2.3", "Confinements à barreaux", "Grande", "Les frères coquins"),
-                new Zone("Carni2","2.4","Confinement à barreaux", "Grande","Neuf Vies")};
+                new Zone(Typeenclos.HERBIVORE, "1.1", "Enclos ouverts", Tailleenclos.MOYENNE, "Les Saint-Félicien"),
+                new Zone(Typeenclos.HERBIVORE, "1.2", "Enclos ouverts", Tailleenclos.MOYENNE, "Les sarcastiques"),
+                new Zone(Typeenclos.OMNIVORE, "3.1", "Confinements sans barreaux", Tailleenclos.PETITE, "Les pygmés malins"),
+                new Zone(Typeenclos.OMNIVORE, "3.2", "Confinements sans barreaux", Tailleenclos.GRANDE, "L'artiste"),
+                new Zone(Typeenclos.CARNIVORE, "2.1", "Confinements à barreaux", Tailleenclos.GRANDE, "Les protecteurs de la lune"),
+                new Zone(Typeenclos.CARNIVORE, "2.2", "Confinements à barreaux", Tailleenclos.GRANDE, "La solitaire"),
+                new Zone(Typeenclos.CARNIVORE, "2.3", "Confinements à barreaux", Tailleenclos.GRANDE, "Les frères coquins"),
+                new Zone(Typeenclos.CARNIVORE,"2.4","Confinement à barreaux", Tailleenclos.GRANDE,"Neuf Vies")};
 
             do {
                 System.out.println("Menu des enclos:");
