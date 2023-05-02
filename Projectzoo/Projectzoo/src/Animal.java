@@ -1,6 +1,8 @@
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 import java.lang.String;
+import utilitaire.MyMethods;
 
 public class Animal {
     //Permet de définir les propriétés que nous allons utiliser dans le code.
@@ -142,7 +144,7 @@ public class Animal {
                 case 3 -> listAnimal(arrayOfAnimal);
                 case 4 -> listAnimaldomestique(arrayOfAnimal);
                 case 5 -> listAnimalexotique(arrayOfAnimal);
-                //case 6 -> modifierNomanimal(arrayOfAnimal);
+                case 6 -> modifierNomanimal(arrayOfAnimal);
                 case 7 -> System.out.println("Retour au menu principal...");
                 default -> System.out.println("Mauvais choix. Recommencer.");
             }
@@ -169,7 +171,6 @@ public class Animal {
                 for (Animauxexotiques ani : animaux) {
                     System.out.println("Animaux exotiques: " + ani.name() + " - Choix: " + ani.ordinal());
                 }
-                System.out.println("Entrez votre choix: ");
                 esp = sc.nextInt();
                 espece = animaux[esp].name();
                 System.out.println("Entrez le nom de l'animal: ");
@@ -193,10 +194,8 @@ public class Animal {
                 genre = sc.next();
                 System.out.println("Entrez le groupe social: ");
                 groupeSocial = scanner.nextLine();
-                System.out.println("Entrez la fréquence des rations par jour: ");
-                rationJour = sc.nextInt();
-                System.out.println("Entrez la fréquence des rations par semaine: ");
-                rationSemaine = sc.nextInt();
+                rationJour = MyMethods.readInteger("Entrez la fréquence des rations par jour: ",0,4);
+                rationSemaine = MyMethods.readInteger("Entrez la fréquence des rations par semaine: ",1,7);
                 System.out.println("Entrez la quantité par jour: ");
                 quantiteJour = sc.nextInt();
                 //Création de l'objet Animal avec les propriétés de l'objet.
@@ -244,10 +243,7 @@ public class Animal {
                 arrayOfAnimal.add(animalAjout);
             }
 
-
-
-            System.out.println("Voulez-vous continuer (Yes/No)? ");
-            loop = sc.next();
+            loop = MyMethods.YesNO("Voulez-vous continuer (Yes/No)? ");
         }
 
         System.out.println("\nListe des animaux à jour :\n");
@@ -291,6 +287,22 @@ public class Animal {
                 System.out.println(arrayOfAnimals.getNomAnimal() + ", " + arrayOfAnimals.getEspece());
             }
         }
+    }
+
+    private static void modifierNomanimal(ArrayList<Animal> arrayOfAnimal){
+        int index = 0;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Liste des animaux: \n");
+        for (Animal arrayOfAnimals: arrayOfAnimal) {
+            System.out.println(arrayOfAnimals.getNomAnimal() + " - Choix: " + (index++));
+        }
+        System.out.println("Entrez votre choix: ");
+        int choix = sc.nextInt();
+        System.out.println(arrayOfAnimal.get(choix).getNomAnimal());
+        System.out.println("Entrez le nouveau nom de l'animal choisi: ");
+        String nouveaunom = sc.next();
+        arrayOfAnimal.get(choix).setnomAnimal(nouveaunom);
+        System.out.println(arrayOfAnimal.get(choix));
     }
 
     //to String pour faire la mise en page de la liste des animaux.

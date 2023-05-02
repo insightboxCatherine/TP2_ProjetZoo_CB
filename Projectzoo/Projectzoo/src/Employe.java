@@ -1,3 +1,5 @@
+import utilitaire.MyMethods;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 //Permet de définir les propriétés que nous allons utiliser dans le code.
@@ -281,10 +283,9 @@ public class Employe {
 
                 }
             }
-            System.out.println("L'employé à ajouter est-il nourrisseur (oui ou non): ");
-            String choixn = sc.next();
+            String choixn = MyMethods.YesNO("L'employé à ajouter est-il nourrisseur (Yes ou No): ");
 
-            if (choixn.equals("oui")){
+            if (choixn.equals("Yes")){
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("Entrez le ou les groupes sociaux que l'employé nourris: ");
                 animauxNourris = scanner.nextLine();
@@ -310,7 +311,7 @@ public class Employe {
             //Ajout d'un nouvel employé dans la liste.
             arrayOfEmploye.add(employeAjout);
             }
-            if (choixn.equals("non")){
+            if (choixn.equals("No")){
                 System.out.println("Entrez le numéro de l'employé : ");
                 noEmploye = sc.nextInt();
                 System.out.println("Entrez le prénom de l'employé: ");
@@ -334,8 +335,7 @@ public class Employe {
                 arrayOfEmploye.add(employeAjout);
 
             }
-            System.out.println("Voulez-vous continuer (Yes/No)? ");
-            loop = sc.next();
+            loop = MyMethods.YesNO("Voulez-vous continuer (Yes/No)? ");
         }
 
         System.out.println("\nListe des employés à jour\n");
@@ -408,8 +408,7 @@ public class Employe {
                     }
                 }
             }
-            System.out.println("Voulez-vous continuer (Yes/No)? ");
-            loop = sc.next();
+            loop = MyMethods.YesNO("Voulez-vous continuer (Yes/No)? ");
         }
     }
 }

@@ -67,8 +67,8 @@ public class Main {
 
         //Création de mes données (statiques) dans la liste d'employés et d'employés-nourrisseurs.
         ArrayList<Object> arrayOfEmploye = new ArrayList<>();
-        Employe.Nourrisseur employe1 = new Employe.Nourrisseur(1,"Juliette","Dubois","24/05/1998",568987584,"24/09/2008",15,"Alain Vadeboncoeur", "Les protecteurs de la lune et Les frères coquins");
-        Employe employe2 = new Employe(2,"Merlin","Trudel","06/08/2001",215465814,"05/07/2018",2,"Francine Lebel");
+        //Employe.Nourrisseur employe1 = new Employe.Nourrisseur(1,"Juliette","Dubois","24/05/1998",568987584,"24/09/2008",15,"Alain Vadeboncoeur", "Les protecteurs de la lune et Les frères coquins");
+        //Employe employe2 = new Employe(2,"Merlin","Trudel","06/08/2001",215465814,"05/07/2018",2,"Francine Lebel");
         Employe.Nourrisseur employe3 = new Employe.Nourrisseur(3,"Nora", "Robert","02/11/1985",845245984,"05/06/2023",6,"Félix Cardin", "La solitaire");
         Employe employe4 = new Employe(4,"Sylvain","Ferland","08/06/1965",254786852,"02/08/2023",20,"Jeanette Laurier");
         Employe.Nourrisseur employe5 = new Employe.Nourrisseur(5,"Emmma","Latraverse","06/05/1997",956358654,"06/05/2010",2,"Rose Latraverse","Les sarcastiques");
@@ -79,8 +79,8 @@ public class Main {
         Employe employe10 = new Employe(10,"Edouard","Thibault","05/09/1968",865752123,"06/10/2000",12,"Agatha Thibault");
 
         //Permet d'entreposer plusieurs variables dans une seule variable.
-        arrayOfEmploye.add(employe1);
-        arrayOfEmploye.add(employe2);
+        //arrayOfEmploye.add(employe1);
+        //arrayOfEmploye.add(employe2);
         arrayOfEmploye.add(employe3);
         arrayOfEmploye.add(employe4);
         arrayOfEmploye.add(employe5);
@@ -89,6 +89,29 @@ public class Main {
         arrayOfEmploye.add(employe8);
         arrayOfEmploye.add(employe9);
         arrayOfEmploye.add(employe10);
+
+        try {
+            File myFile = new File("Projectzoo/Projectzoo/listofemployes");
+            Scanner myReader = new Scanner(myFile);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                String[] splitData = data.split(",", 0);
+                int noemploye = Integer.parseInt(splitData[0]);
+                int nas = Integer.parseInt(splitData[4]);
+                int anneedexperience = Integer.parseInt(splitData[6]);
+                if (splitData.length == 8) {
+                    arrayOfEmploye.add(new Employe(noemploye, splitData[1], splitData[2], splitData[3], nas, splitData[5], anneedexperience,splitData[7]));
+                }
+                if(splitData.length == 9) {
+                    arrayOfEmploye.add(new Employe.Nourrisseur(noemploye, splitData[1], splitData[2], splitData[3], nas, splitData[5],anneedexperience,splitData[7],splitData[8]));
+                }
+            }
+            myReader.close();
+
+        }catch (FileNotFoundException e) {
+            System.out.println("Une erreur est survenue: " + e);
+            e.printStackTrace();
+        }
 
         //Affichage du menu principal. On demande ensuite à l'utilisateur de choisir une option dans le menu.
         //Switch permet de sélectionner un ensemble d'instructions à exécuter en fonction de la valeur d'une variable.

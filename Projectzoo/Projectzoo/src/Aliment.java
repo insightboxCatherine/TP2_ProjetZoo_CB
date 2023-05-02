@@ -1,3 +1,5 @@
+import utilitaire.MyMethods;
+
 import java.util.Scanner;
 //Permet de définir les propriétés que nous allons utiliser dans le code.
 public class Aliment {
@@ -93,10 +95,10 @@ public class Aliment {
 
                 System.out.print("Entrez le nombre associé au type de nourriture entre viande(0), foin(1) ou moulée(2): ");
                 choice = sc.nextInt();
-                System.out.print("Entrez la quantité à retirer de l'inventaire: " + "  ");
-                newAliment =  listAliment[choice].getInventory() - sc.nextDouble();
+                newAliment =  listAliment[choice].getInventory() - MyMethods.readInteger("Entrez la quantité à retirer de l'inventaire: ",0,10000);
                 listAliment[choice].setInventory(newAliment);
                 if (listAliment[choice].getInventory() <= 0){
+                    listAliment[choice].setInventory(0);
                     System.out.println("Attention, la quantité de " + listAliment[choice].getType().toLowerCase() + " est à zéro.");
                 }
 
@@ -127,10 +129,8 @@ public class Aliment {
                 System.out.println(value);
             }
 
-            System.out.print("Entrez le nombre associé au type de nourriture entre viande(0), foin(1) ou moulée(2): ");
-            choice = sc.nextInt();
-            System.out.print("Entrez la quantité à ajouter à l'inventaire: " + "  ");
-            newAliment = sc.nextDouble() + listAliment[choice].getInventory();
+            choice = MyMethods.readInteger("Entrez le nombre associé au type de nourriture entre viande(0), foin(1) ou moulée(2): ",0,2);
+            newAliment = MyMethods.readInteger("Entrez la quantité à ajouter à l'inventaire: ", 0,10000) + listAliment[choice].getInventory();
             listAliment[choice].setInventory(newAliment);
 
             for (Aliment aliment : listAliment) {
