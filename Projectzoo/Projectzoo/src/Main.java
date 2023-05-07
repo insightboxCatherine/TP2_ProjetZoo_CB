@@ -1,3 +1,5 @@
+import utilitaire.MyMethods;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -40,7 +42,7 @@ public class Main {
         arrayOfAnimal.add(animal13);
         arrayOfAnimal.add(animal14);
 
-        //lecture dans un fichier et ajout des voitures dans le arraylist arrayOfCars
+        //lecture dans un fichier et ajout des animaux dans le arraylist des animaux
         try {
             File myFile = new File("Projectzoo/Projectzoo/listofanimals");
             Scanner myReader = new Scanner(myFile);
@@ -90,6 +92,7 @@ public class Main {
         arrayOfEmploye.add(employe9);
         arrayOfEmploye.add(employe10);
 
+        //lecture dans un fichier et ajout des employés dans le arraylist des employés
         try {
             File myFile = new File("Projectzoo/Projectzoo/listofemployes");
             Scanner myReader = new Scanner(myFile);
@@ -104,6 +107,34 @@ public class Main {
                 }
                 if(splitData.length == 9) {
                     arrayOfEmploye.add(new Employe.Nourrisseur(noemploye, splitData[1], splitData[2], splitData[3], nas, splitData[5],anneedexperience,splitData[7],splitData[8]));
+                }
+            }
+            myReader.close();
+
+        }catch (FileNotFoundException e) {
+            System.out.println("Une erreur est survenue: " + e);
+            e.printStackTrace();
+        }
+
+        Aliment[] listAliment = {
+                new Aliment("Viande", "lbs", 100),
+                new Aliment("Foin", "balles", 40),
+                new Aliment("Moulée", "Boisseaux", 200)};
+
+        //liste d'aliments à ajouter du fichier listofaliments dans l'inventaire
+        try {
+            File myFile = new File("Projectzoo/Projectzoo/listofaliments");
+            Scanner myReader = new Scanner(myFile);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                String[] splitData = data.split(",", 0);
+                int quantite = Integer.parseInt(splitData[2]);
+                String choice = splitData[0];
+                for (Aliment aliment : listAliment) {
+                    if (choice.equals(aliment.getType())){
+                        double newAliment = aliment.getInventory() + quantite;
+                        aliment.setInventory(newAliment);
+                    }
                 }
             }
             myReader.close();
@@ -131,7 +162,7 @@ public class Main {
             switch (choice) {
                 case 1 -> Animal.animalMenu(arrayOfAnimal);
                 case 2 -> Employe.employeMenu(arrayOfEmploye, arrayOfAnimal);
-                case 3 -> Aliment.alimentMenu();
+                case 3 -> Aliment.alimentMenu(listAliment);
                 case 4 -> Enclos.enclosMenu(arrayOfAnimal);
                 case 5 -> System.out.println("Exiting program...");
                 default -> System.out.println("Invalid choice. Please try again.");

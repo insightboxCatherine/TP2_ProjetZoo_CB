@@ -1,5 +1,4 @@
 import utilitaire.MyMethods;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 //Permet de définir les propriétés que nous allons utiliser dans le code.

@@ -1,5 +1,4 @@
 import utilitaire.MyMethods;
-
 import java.util.Scanner;
 //Permet de définir les propriétés que nous allons utiliser dans le code.
 public class Aliment {
@@ -41,15 +40,9 @@ public class Aliment {
 
     //Affichage du menu pour la classe "Aliment". On demande ensuite à l'utilisateur de choisir une option dans le menu.
     //Switch permet de sélectionner un ensemble d'instructions à exécuter en fonction de la valeur d'une variable.
-    public static void alimentMenu() {
+    public static void alimentMenu(Aliment[] listAliment) {
         Scanner input = new Scanner(System.in);
         int choice;
-
-        //Création de mes données (statiques) dans la liste des aliments.
-        Aliment[] listAliment = {
-            new Aliment("Viande", "lbs", 100),
-            new Aliment("Foin", "balles", 40),
-            new Aliment("Moulée", "Boisseaux", 200)};
 
         do {
             System.out.println("Menu aliment:");
